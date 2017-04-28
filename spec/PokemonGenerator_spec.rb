@@ -5,7 +5,11 @@ RSpec.describe PokemonGenerator do
     expect(PokemonGenerator::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'returns a random named pokemon' do 
+    expect(PokemonGenerator.name).to be_a String
+  end
+
+  it 'returns a skill for the specific pokemon type' do 
+    expect(PokemonGenerator.skills).to eq 'something'
   end
 end
