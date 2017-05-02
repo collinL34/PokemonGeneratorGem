@@ -8,7 +8,7 @@ require 'json'
 module PokemonGenerator
 
   def self.parse
-    json_parse = JSON.parse(File.read('lib/pokemon.json'))
+    json_parse = JSON.parse(File.read('lib/pokemonDb.json'))
   end
 
   def self.name
@@ -16,15 +16,26 @@ module PokemonGenerator
   end
 
   def self.type
-    pok_type = PokemonGenerator.parse().sample['type']
-    pok_type.length <= 2 ? pok_type.join(', ') : pok_type
+    PokemonGenerator.parse().sample['type']
   end
 
-  def self.pokemon(type=nil)
-    if type.nil?
-      PokemonGenerator.parse().sample
+  def self.pokemon(args={})
+    if args[:name]
+      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['name'] == args[:name] }
+    elsif args[:type]
+      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['type'].include?(args[:type]) }
     else
-      PokemonGenerator.parse().shuffle.find { |pokmn| pokmn if pokmn['type'].include?(type) }
+      PokemonGenerator.parse().sample
+    end
+  end
+
+  def self.moves(args={})
+    if args[:name]
+      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['name'] == args[:name] }
+    elsif args[:type]
+      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['type'].include?(args[:type]) }
+    else 
+      PokemonGenerator.parse().sample['moves']
     end
   end
 
