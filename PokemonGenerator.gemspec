@@ -9,19 +9,17 @@ Gem::Specification.new do |spec|
   spec.authors       = ["collinl34"]
   spec.email         = ["collinlshelby@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Pokemon generator to quickely generate real pokemon and their specific moves."
+  spec.description   = "This gem is a Pokemon wrapper for engineers can call simple functions 
+                        to create new pokemon with a name or type from the Pokemon 
+                        Series from any of the 8 generations. You can call 
+                        PokemonGenerator.pokemon() to get a random pokemon hash for you
+                        to use in you application along with being able to get 
+                        the moves for that specific pokemon by its name a easy to work with array. 
+                        If you wish to learn more on how to PokemonGenerator Gem please visit
+                        my Homepage."
+  spec.homepage      = "https://github.com/collinL34/PokemonGem"
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

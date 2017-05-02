@@ -21,9 +21,9 @@ module PokemonGenerator
 
   def self.pokemon(args={})
     if args[:name]
-      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['name'] == args[:name] }
+      'No pokemon found by that name.' if PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['name'] == args[:name].capitalize }.nil?
     elsif args[:type]
-      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['type'].include?(args[:type]) }
+      'No pokemon found by that type.' if PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn if pokmn['type'].include?(args[:type].capitalize) }.nil?
     else
       PokemonGenerator.parse().sample
     end
@@ -31,10 +31,10 @@ module PokemonGenerator
 
   def self.moves(args={})
     if args[:name]
-      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['name'] == args[:name] }
+      'No pokemon found by that name.' if PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['name'].capitalize == args[:name].capitalize }.nil?
     elsif args[:type]
-      PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['type'].include?(args[:type]) }
-    else 
+      'No pokemon found by that type.' if PokemonGenerator.parse().shuffle.find { |pokmn| return pokmn['moves'] if pokmn['type'].include?(args[:type].capitalize) }.nil?
+    else
       PokemonGenerator.parse().sample['moves']
     end
   end

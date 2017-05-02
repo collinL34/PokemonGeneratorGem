@@ -36,7 +36,6 @@ end
 def moves(pokmn_name)
   moves_list = []
   pokmn_link = link_stripper(pokmn_name)
-  ap pokmn_link
   html = Nokogiri::HTML(open("https://pokemondb.net/#{pokmn_link}"))
   html.css('td').each do |pokmn_txt|
     moves = pokmn_txt.css('.ent-name').text
