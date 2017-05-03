@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
                         the moves for that specific pokemon by its name a easy to work with array. 
                         If you wish to learn more on how to PokemonGenerator Gem please visit
                         my Homepage."
-  spec.homepage      = "https://github.com/collinL34/PokemonGem"
+  spec.homepage      = "https://github.com/collinL34/PokemonGeneratorGem"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
