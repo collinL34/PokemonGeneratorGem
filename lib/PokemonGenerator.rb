@@ -2,7 +2,6 @@ require "PokemonGenerator/version"
 require 'json'
 require 'nokogiri'
 require 'open-uri'
-require 'awesome_print'
 require 'json'
 
 module PokemonGenerator

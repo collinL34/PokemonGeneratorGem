@@ -1,7 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require 'awesome_print'
 
 def nokogiri_obj
   Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
