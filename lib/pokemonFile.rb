@@ -1,14 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require 'awesome_print'
 
 def nokogiri_obj
   Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
 end
 
 def parse_add_file
-  false_pok = ['Mr.Mime', 'Mime Jr.', 'nidoran']
   html = nokogiri_obj()
   File.open('./pok.json', 'w') do |file|
     html.css('tr').each do |pokmn_txt|
