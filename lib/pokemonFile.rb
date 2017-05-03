@@ -8,7 +8,6 @@ def nokogiri_obj
 end
 
 def parse_add_file
-  false_pok = ['Mr.Mime', 'Mime Jr.', 'nidoran']
   html = nokogiri_obj()
   File.open('./pok.json', 'w') do |file|
     html.css('tr').each do |pokmn_txt|
