@@ -18,7 +18,7 @@ To get the name of a pokemon you call this method anywhere in your code.
   PokemonGenerator.name() => "Staravia"
 ```
 
-To get a type of pokemon you call this method.
+To get a type of pokemon you call this method which will either return a string or an array containing strings of the different type that pokemon has.
 ```ruby 
   PokemonGenerator.type() => "Water"
 ```
