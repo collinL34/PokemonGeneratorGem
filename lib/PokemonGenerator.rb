@@ -7,7 +7,7 @@ require 'json'
 module PokemonGenerator
 
   def self.parse
-    json_parse = JSON.parse(File.read('./lib/pokemonDb.json'))
+    json_parse = JSON.parse(File.read('pokemonDb.json'))
   end
 
   def self.name
