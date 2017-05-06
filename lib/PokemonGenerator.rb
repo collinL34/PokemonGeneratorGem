@@ -17,44 +17,16 @@ module PokemonGenerator
   end
 
   def self.type
+    types_list = []
     type = PokemonGenerator.nokogiri_obj().css('tr')[rand(0..909)].css('a').each do |link|
+      types_list << link.text
+    end
+    if types_list.length == 2
+      types_list[1]
+    else
+      [types_list[1], types_list[2]]
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   # def self.pokemon(args={})

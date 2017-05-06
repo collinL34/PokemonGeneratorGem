@@ -45,7 +45,8 @@ RSpec.describe PokemonGenerator do
 
   describe 'Type' do
     it 'returns a randomized pokemon type' do
-      100.times { expect(PokemonGenerator.type[0]).to be_a String }
+      # 100.times { expect(PokemonGenerator.type[0]).to be_a String }
+      expect(PokemonGenerator.type).to be_a String
     end
   end
 
