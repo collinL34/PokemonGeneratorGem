@@ -75,8 +75,8 @@ module PokemonGenerator
         return {
           name: pokmn.css('.ent-name').text,
           type: PokemonGenerator.type_stripper(pokmn.css('a')),
-          moves: PokemonGenerator.moves(pokmn.css('.ent-name').text),
-          image: PokemonGenerator.image(pokmn.css('.ent-name').text)
+          image: PokemonGenerator.image(pokmn.css('.ent-name').text),
+          moves: PokemonGenerator.moves(pokmn.css('.ent-name').text)
         }
       end
     end
