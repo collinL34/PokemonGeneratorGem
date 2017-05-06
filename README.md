@@ -4,7 +4,7 @@
 
 Add this line of code into your gemfile
 ```ruby
-  gem 'PokemonGenerator', '~>0.1.3'
+  gem 'PokemonGenerator', '~>0.1.8'
 ```
 Then type this in your terminal
 ```ruby
@@ -78,20 +78,6 @@ To choose a specific pokemon by its type.
         . . .
     ]
   }
-```
-
-To choose a specific set of moves by its type.
-
-```ruby 
-  PokemonGenerator.moves({ type: "Fire" }) => [
-    [ 0] "Leer",
-    [ 1] "Smog",
-    [ 2] "Ember",
-    [ 3] "Smokescreen",
-    [ 4] "Feint Attack",
-    [ 5] "Fire Spin",
-    . . .
-  [
 ```
 
 To choose a specific set of moves for a perticular pokemon.
