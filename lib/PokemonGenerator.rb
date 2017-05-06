@@ -61,8 +61,8 @@ module PokemonGenerator
           return {
             name: name,
             type: PokemonGenerator.type_stripper(pokmn.css('a')),
-            moves: PokemonGenerator.moves(name.capitalize),
-            image: PokemonGenerator.image(pokmn.css('.ent-name').text)
+            image: PokemonGenerator.image(pokmn.css('.ent-name').text),
+            moves: PokemonGenerator.moves(name.capitalize)
           }
         end
       end
@@ -95,8 +95,8 @@ module PokemonGenerator
         pokemon = pokemon_list[rand(0..909)]
         pokemon_obj[:name] = pokemon.css('.ent-name').text
         pokemon_obj[:type] = PokemonGenerator.type_stripper(pokemon.css('a'))
-        pokemon_obj[:moves] = PokemonGenerator.moves(pokemon.css('.ent-name').text)
         pokemon_obj[:image] = PokemonGenerator.image(pokemon.css('.ent-name').text)
+        pokemon_obj[:moves] = PokemonGenerator.moves(pokemon.css('.ent-name').text)
     end
     pokemon_obj
   end
