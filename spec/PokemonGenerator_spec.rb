@@ -55,6 +55,12 @@ RSpec.describe PokemonGenerator do
     end
   end
 
+  describe 'image' do 
+    it 'returns an image url' do 
+      expect(PokemonGenerator.image('Bulbasaur')).to be_a String
+    end
+  end
+
 end
 
 

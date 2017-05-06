@@ -19,7 +19,7 @@ module PokemonGenerator
     types_list.length == 2 ? types_list[1] : [types_list[1], types_list[2]]
   end
 
-  def self.move_html_stripper(pokmn_name)
+  def self.link_html_stripper(pokmn_name)
     html = PokemonGenerator.nokogiri_obj()
     html.css('tr td .ent-name').find do |pokmn|
       return pokmn.attributes['href'].text if pokmn.text == pokmn_name
@@ -39,13 +39,19 @@ module PokemonGenerator
   
   def self.moves(pokmn_name)
     moves_list = []
-    pokmn_link = PokemonGenerator.move_html_stripper(pokmn_name)
+    pokmn_link = PokemonGenerator.link_html_stripper(pokmn_name)
     html = Nokogiri::HTML(open("https://pokemondb.net/#{pokmn_link}"))
     html.css('td').each do |pokmn_txt|
       moves = pokmn_txt.css('.ent-name').text
       moves_list << moves if !moves_list.include?(moves) && moves != ''
     end
     moves_list
+  end
+
+  def self.image(pokmn_name)
+    pokmn_link = PokemonGenerator.link_html_stripper(pokmn_name)
+    html = Nokogiri::HTML(open("https://pokemondb.net/#{pokmn_link}"))
+    html.css('.figure img').attr('src').text
   end
 
   def self.pokemon_name_specific(pokemon_list, name)
@@ -55,7 +61,8 @@ module PokemonGenerator
           return {
             name: name,
             type: PokemonGenerator.type_stripper(pokmn.css('a')),
-            moves: PokemonGenerator.moves(name.capitalize)
+            moves: PokemonGenerator.moves(name.capitalize),
+            image: PokemonGenerator.image(pokmn.css('.ent-name').text)
           }
         end
       end
@@ -68,7 +75,8 @@ module PokemonGenerator
         return {
           name: pokmn.css('.ent-name').text,
           type: PokemonGenerator.type_stripper(pokmn.css('a')),
-          moves: PokemonGenerator.moves(pokmn.css('.ent-name').text)
+          moves: PokemonGenerator.moves(pokmn.css('.ent-name').text),
+          image: PokemonGenerator.image(pokmn.css('.ent-name').text)
         }
       end
     end
@@ -88,6 +96,7 @@ module PokemonGenerator
         pokemon_obj[:name] = pokemon.css('.ent-name').text
         pokemon_obj[:type] = PokemonGenerator.type_stripper(pokemon.css('a'))
         pokemon_obj[:moves] = PokemonGenerator.moves(pokemon.css('.ent-name').text)
+        pokemon_obj[:image] = PokemonGenerator.image(pokemon.css('.ent-name').text)
     end
     pokemon_obj
   end
