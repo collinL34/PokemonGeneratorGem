@@ -2,13 +2,13 @@ require "spec_helper"
 
 RSpec.describe PokemonGenerator do
 
-  pending 'Version' do 
+  describe 'Version' do 
     it "has a version number" do
       expect(PokemonGenerator::VERSION).not_to be nil
     end
   end
 
-  pending 'Pokemon' do 
+  describe 'Pokemon' do 
     it 'returns a randomized hash specifiying a pokemon name and type' do 
       expect(PokemonGenerator.pokemon()).to be_a Hash
     end
@@ -23,16 +23,8 @@ RSpec.describe PokemonGenerator do
       expect(moves).not_to eq(pokmn)
     end
 
-    it 'returns an error when given a incorrect pokemon name' do 
-      expect(PokemonGenerator.pokemon({name: 'bulbasuar'})).to eq 'No pokemon found by that name.'
-    end
-
     it 'returns the correct pokemon with non capitalized name' do 
       expect(PokemonGenerator.pokemon({name: 'bulbasaur'})).to be_a Hash
-    end
-
-    it 'returns an error when incorrect type given' do 
-      expect(PokemonGenerator.pokemon({type: 'Leaf'})).to eq 'No pokemon found by that type.'
     end
   end
   
@@ -46,33 +38,20 @@ RSpec.describe PokemonGenerator do
   describe 'Type' do
     it 'returns a randomized pokemon type' do
       # 100.times { expect(PokemonGenerator.type[0]).to be_a String }
-      expect(PokemonGenerator.type).to be_a String
+      expect(PokemonGenerator.type[0]).to be_a String
     end
   end
 
-  pending 'Moves' do 
-    it 'returns a random array consisting of the specific pokemon type' do 
-      expect(PokemonGenerator.moves({type: 'Fire'})).to be_a Array
-    end
+  describe 'Moves' do 
 
     it 'returns a selected list of array of moves for the specific pokemon' do 
       expect(PokemonGenerator.moves({name: 'Venusaur'})).to be_a Array
     end
 
-
     it 'returns the moves for the specific pokemon' do 
       squirtle = PokemonGenerator.pokemon( {name: 'Squirtle'} )
-      moves = PokemonGenerator.moves( {'name': 'Squirtle'} )
-      expect(squirtle['moves']).to eq moves
-    end
-
-
-    it 'returns an error when incorrect type given' do 
-      expect(PokemonGenerator.moves({type: 'Leaf'})).to eq 'No pokemon found by that type.'
-    end
-
-    it 'returns an error when incorrect name given' do 
-      expect(PokemonGenerator.moves({name: 'bulba'})).to eq 'No pokemon found by that name.'
+      moves = PokemonGenerator.moves('Squirtle')
+      expect(squirtle[:moves]).to eq moves
     end
   end
 
