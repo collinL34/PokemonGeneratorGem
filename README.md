@@ -4,7 +4,7 @@
 
 Add this line of code into your gemfile
 ```ruby
-  gem 'PokemonGenerator', '~>0.1.0'
+  gem 'PokemonGenerator', '~>0.1.3'
 ```
 Then type this in your terminal
 ```ruby
