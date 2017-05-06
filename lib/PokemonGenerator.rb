@@ -55,7 +55,7 @@ module PokemonGenerator
           return {
             name: name,
             type: PokemonGenerator.type_stripper(pokmn.css('a')),
-            moves: PokemonGenerator.moves(name)
+            moves: PokemonGenerator.moves(name.capitalize)
           }
         end
       end
