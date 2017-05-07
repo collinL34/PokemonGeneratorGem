@@ -61,6 +61,16 @@ RSpec.describe PokemonGenerator do
     end
   end
 
+  describe 'evolve' do 
+    it 'returns the name of the next evolution' do 
+      expect(PokemonGenerator.evolve('Squirtle')[:name]).to eq 'Wartortle'
+    end
+
+    it 'returns a string telling the user an error occured' do 
+      expect(PokemonGenerator.evolve('Larpras')).to eq "their is no evolution for that pokemon."
+    end
+  end
+
 end
 
 

@@ -48,6 +48,22 @@ module PokemonGenerator
     moves_list
   end
 
+  def self.evolve(pokemon_to_evolve)
+    evolutions = []
+    href = link_html_stripper(pokemon_to_evolve)
+    html = Nokogiri::HTML(open("https://pokemondb.net/#{href}"))
+    html.css('.infocard-tall').each do |pokmn|
+      if pokmn.css('.ent-name').text != ''
+        evolutions << pokmn.css('.ent-name').text
+      end
+    end
+    if !evolutions.empty?
+      PokemonGenerator.pokemon({ name: evolutions[evolutions.index(pokemon_to_evolve) + 1] })
+    else
+      "Their is no evolution for that pokemon."
+    end
+  end
+
   def self.image(pokmn_name)
     pokmn_link = PokemonGenerator.link_html_stripper(pokmn_name)
     html = Nokogiri::HTML(open("https://pokemondb.net/#{pokmn_link}"))
