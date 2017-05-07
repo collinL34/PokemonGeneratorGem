@@ -43,6 +43,7 @@ If you want a whole pokemon object.
     ]
   }
 ```
+<img src="https://img.pokemondb.net/artwork/diggersby.jpg"/>
 
 To choose a specific pokemon by its name.
 
@@ -61,6 +62,7 @@ To choose a specific pokemon by its name.
     ]
   }
 ```
+<img src= "https://img.pokemondb.net/artwork/squirtle.jpg"/>
 
 To choose a specific pokemon by its type.
 
@@ -103,6 +105,7 @@ Now you can get the link to an image for a specific pokemon
 PokemonGenerator.image('Squirtle')
 => "https://img.pokemondb.net/artwork/squirtle.jpg"
 ```
+<img src= "https://img.pokemondb.net/artwork/squirtle.jpg"/>
 
 You can also now evolve your pokemon!!!
 
