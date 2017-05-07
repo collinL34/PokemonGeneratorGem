@@ -67,7 +67,8 @@ module PokemonGenerator
   def self.image(pokmn_name)
     pokmn_link = PokemonGenerator.link_html_stripper(pokmn_name)
     html = Nokogiri::HTML(open("https://pokemondb.net/#{pokmn_link}"))
-    html.css('.figure img').attr('src').text
+    html.css('.figure img').attr('src').text == "https://img.pokemondb.net/s.png" ? 
+    'Sorry no image found by that name' : html.css('.figure img').attr('src').text
   end
 
   def self.pokemon_name_specific(pokemon_list, name)
@@ -83,6 +84,7 @@ module PokemonGenerator
         end
       end
     end
+    'Sorry no pokemon found by that name.'
   end
 
   def self.pokemon_type_specific(pokemon_list, type)
@@ -96,6 +98,7 @@ module PokemonGenerator
         }
       end
     end
+    'Sorry no pokemon found by that type.'
   end
 
 

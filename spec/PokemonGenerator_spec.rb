@@ -9,6 +9,14 @@ RSpec.describe PokemonGenerator do
   end
 
   describe 'Pokemon' do 
+    it 'returns an error when given a wrong name for a pokemon' do 
+      expect(PokemonGenerator.pokemon({name: 'bulbasar'})).to eq 'Sorry no pokemon found by that name.'
+    end
+
+    it 'returns an error when given a wrong type for a pokemon' do 
+      expect(PokemonGenerator.pokemon({type: 'bulbasar'})).to eq 'Sorry no pokemon found by that type.'
+    end
+
     it 'returns a randomized hash specifiying a pokemon name and type' do 
       expect(PokemonGenerator.pokemon()).to be_a Hash
     end
@@ -59,6 +67,10 @@ RSpec.describe PokemonGenerator do
     it 'returns an image url' do 
       expect(PokemonGenerator.image('Bulbasaur')).to be_a String
     end
+
+    it 'returns an error when given wrong pokemon name' do 
+      expect(PokemonGenerator.image('Bulbasar')).to eq 'Sorry no image found by that name'
+    end
   end
 
   describe 'evolve' do 
@@ -67,7 +79,7 @@ RSpec.describe PokemonGenerator do
     end
 
     it 'returns a string telling the user an error occured' do 
-      expect(PokemonGenerator.evolve('Larpras')).to eq "their is no evolution for that pokemon."
+      expect(PokemonGenerator.evolve('Larpras')).to eq "Their is no evolution for that pokemon."
     end
   end
 
