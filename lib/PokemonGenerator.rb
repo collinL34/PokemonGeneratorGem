@@ -57,7 +57,7 @@ module PokemonGenerator
         evolutions << pokmn.css('.ent-name').text
       end
     end
-    if !evolutions.empty?
+    if !evolutions.empty? && !evolutions[evolutions.index(pokemon_to_evolve) + 1].nil?
       PokemonGenerator.pokemon({ name: evolutions[evolutions.index(pokemon_to_evolve) + 1] })
     else
       "Their is no evolution for that pokemon."

@@ -82,6 +82,10 @@ RSpec.describe PokemonGenerator do
     it 'returns a string telling the user an error occured' do
       expect(PokemonGenerator.evolve('Larpras')).to eq "Their is no evolution for that pokemon."
     end
+
+    it 'returns a string telling the user an error occured when given a pokemon name that is the final evolution' do
+      expect(PokemonGenerator.evolve('Charizard')).to eq "Their is no evolution for that pokemon."
+    end
   end
 
 end
