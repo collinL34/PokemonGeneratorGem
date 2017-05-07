@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
                         the moves for that specific pokemon by its name a easy to work with array. 
                         If you wish to learn more on how to PokemonGenerator Gem please visit
                         my Homepage."
+                        
   spec.homepage      = "https://github.com/collinL34/PokemonGeneratorGem"
   spec.license       = "MIT"
 
@@ -26,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib", 'lib/pokemonDb.json']
+  spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
