@@ -105,7 +105,6 @@ Now you can get the link to an image for a specific pokemon
 PokemonGenerator.image('Squirtle')
 => "https://img.pokemondb.net/artwork/squirtle.jpg"
 ```
-<img src= "https://img.pokemondb.net/artwork/squirtle.jpg"/>
 
 You can also now evolve your pokemon!!!
 
@@ -119,6 +118,8 @@ PokemonGenerator.evolve('Squirtle')
       ]
     }
 ```
+
+<img src= "https://img.pokemondb.net/artwork/wartortle.jpg"/>
 
 ## Contribution
   Any Bug reports and or pull requests are more than welcome at https://github.com/collinL34/PokemonGeneratorGem.
