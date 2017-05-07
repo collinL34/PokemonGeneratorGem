@@ -50,42 +50,40 @@ RSpec.describe PokemonGenerator do
     end
   end
 
-  describe 'Moves' do 
-
-    it 'returns a selected list of array of moves for the specific pokemon' do 
+  describe 'Moves' do
+    it 'returns a selected list of array of moves for the specific pokemon' do
       expect(PokemonGenerator.moves({name: 'Venusaur'})).to be_a Array
     end
 
-    it 'returns the moves for the specific pokemon' do 
+    it 'returns the moves for the specific pokemon' do
       squirtle = PokemonGenerator.pokemon( {name: 'Squirtle'} )
       moves = PokemonGenerator.moves('Squirtle')
       expect(squirtle[:moves]).to eq moves
     end
   end
 
-  describe 'image' do 
-    it 'returns an image url' do 
+  describe 'image' do
+    it 'returns an image url' do
       expect(PokemonGenerator.image('Bulbasaur')).to be_a String
     end
 
-    it 'returns an error when given wrong pokemon name' do 
+    it 'returns an image url' do
+      expect(PokemonGenerator.image('bulbasaur')).to be_a String
+    end
+
+    it 'returns an error when given wrong pokemon name' do
       expect(PokemonGenerator.image('Bulbasar')).to eq 'Sorry no image found by that name'
     end
   end
 
-  describe 'evolve' do 
-    it 'returns the name of the next evolution' do 
+  describe 'evolve' do
+    it 'returns the name of the next evolution' do
       expect(PokemonGenerator.evolve('Squirtle')[:name]).to eq 'Wartortle'
     end
 
-    it 'returns a string telling the user an error occured' do 
+    it 'returns a string telling the user an error occured' do
       expect(PokemonGenerator.evolve('Larpras')).to eq "Their is no evolution for that pokemon."
     end
   end
 
 end
-
-
-
-
-
