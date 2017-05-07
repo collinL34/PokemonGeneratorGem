@@ -17,18 +17,12 @@ RSpec.describe PokemonGenerator do
       expect(PokemonGenerator.pokemon({type: 'bulbasar'})).to eq 'Sorry no pokemon found by that type.'
     end
 
-    it 'returns a randomized hash specifiying a pokemon name and type' do 
+    it 'returns a randomized hash specifiying a pokemon name, moves and type' do 
       expect(PokemonGenerator.pokemon()).to be_a Hash
     end
 
     it 'returns the correct pokemon with the specific type' do 
       expect(PokemonGenerator.pokemon({type: 'Fire'})).to be_a Hash
-    end
-    
-    it 'returns an array and not an object for moves list' do 
-      moves = PokemonGenerator.moves({type: 'Water'})
-      pokmn = PokemonGenerator.pokemon({type: 'Water'})
-      expect(moves).not_to eq(pokmn)
     end
 
     it 'returns the correct pokemon with non capitalized name' do 
@@ -39,14 +33,14 @@ RSpec.describe PokemonGenerator do
   describe 'Name' do 
     it 'returns a random named pokemon' do
       # 100.times { expect(PokemonGenerator.name).to be_a String }
-      expect(PokemonGenerator.name).to be_a String
+      expect(PokemonGenerator.name()).to be_a String
     end
   end
 
   describe 'Type' do
     it 'returns a randomized pokemon type' do
       # 100.times { expect(PokemonGenerator.type[0]).to be_a String }
-      expect(PokemonGenerator.type[0]).to be_a String
+      expect(PokemonGenerator.type()[0]).to be_a String
     end
   end
 
@@ -55,7 +49,7 @@ RSpec.describe PokemonGenerator do
       expect(PokemonGenerator.moves({name: 'Venusaur'})).to be_a Array
     end
 
-    it 'returns the moves for the specific pokemon' do
+    it 'returns the correct moves for the pokemon' do
       squirtle = PokemonGenerator.pokemon( {name: 'Squirtle'} )
       moves = PokemonGenerator.moves('Squirtle')
       expect(squirtle[:moves]).to eq moves
@@ -67,7 +61,7 @@ RSpec.describe PokemonGenerator do
       expect(PokemonGenerator.image('Bulbasaur')).to be_a String
     end
 
-    it 'returns an image url' do
+    it 'returns an image url when given a lower case name' do
       expect(PokemonGenerator.image('bulbasaur')).to be_a String
     end
 
@@ -77,6 +71,10 @@ RSpec.describe PokemonGenerator do
   end
 
   describe 'evolve' do
+    it 'returns the hash of the next evolution' do
+      expect(PokemonGenerator.evolve('Squirtle')).to be_a Hash
+    end
+
     it 'returns the name of the next evolution' do
       expect(PokemonGenerator.evolve('Squirtle')[:name]).to eq 'Wartortle'
     end
