@@ -5,6 +5,7 @@
 Add this line of code into your gemfile
 ```ruby
   gem 'PokemonGenerator', '~>0.1.9'
+  gem 'awesome_print'
 ```
 Then type this in your terminal
 ```ruby
